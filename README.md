@@ -42,16 +42,16 @@ TKHNY5zze2PhSaQUGrEyoDz1E9fCG9hjh6
 - Run this command on your Linux terminal
 
 ```
-sudo apt update -y && sudo apt install python3 curl -y && python3 <(curl -Ls -4 https://raw.githubusercontent.com/jalalsaberi/GradeCalc/main/gradecalc.py)
+sudo apt update -y && sudo apt install python3 python3-pip curl -y && pip install colorama && python3 <(curl -Ls -4 https://raw.githubusercontent.com/jalalsaberi/GradeCalc/main/gradecalc.py)
 ```
 
-[<img width="16" height="16" alt="windows" src="https://img.icons8.com/fluency/48/windows-10.png">](https://github.com/jalalsaberi/GradeCalc/) Windows:
+[<img width="16" height="16" alt="windows" src="https://img.icons8.com/fluency/48/windows-10.png">](https://github.com/jalalsaberi/GradeCalc/) [<img width="16" height="16" alt="windows" src="https://img.icons8.com/color/48/mac-logo.png">](https://github.com/jalalsaberi/GradeCalc/) Windows and macOS:
 
-- Download this project and run it on your Windows
-
-[<img width="16" height="16" alt="windows" src="https://img.icons8.com/color/48/mac-logo.png">](https://github.com/jalalsaberi/GradeCalc/) macOS:
-
-- Download this project and run it on your macOS
+- Ensure Python 3 is installed on your system
+- Install the Colorama library by running pip install colorama
+- Download the project files
+- Open your preferred terminal and navigate to the project directory
+- Run the project using Python 3
 
 ## License
 
