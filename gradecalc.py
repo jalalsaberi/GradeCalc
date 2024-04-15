@@ -1,7 +1,11 @@
+from colorama import Fore, Style, init
+
+init()
+
 def convert_grade():
-    iran_grade = float(input("Enter an Iranian 20-point grade: \n"))
+    iran_grade = float(input(f"{Fore.YELLOW}Enter an Iranian 20-point grade:{Style.RESET_ALL} "))
     if iran_grade < 0 or iran_grade > 20:
-        print("Iranian grade must be between 0 and 20\n")
+        print(f"{Fore.RED}Iranian grade must be between 0 and 20{Style.RESET_ALL}\n")
         convert_grade()
     else:
       gpa = (iran_grade / 20) * 4
@@ -17,6 +21,6 @@ def convert_grade():
           letter_grade = "D"
       else:
           letter_grade = "F"
-      print(f"Iranian Grade: {iran_grade}\nGPA: {round(gpa, 3)}\nPercentage: {round(percent, 2)}\nLetter Grade: {letter_grade}")
+      print(f"\n{Fore.YELLOW}Iranian Grade: {Fore.CYAN}{iran_grade}\n{Fore.YELLOW}GPA: {Fore.CYAN}{round(gpa, 3)}\n{Fore.YELLOW}Percentage: {Fore.CYAN}{round(percent, 2)}\n{Fore.YELLOW}Letter Grade: {Fore.CYAN}{letter_grade}{Style.RESET_ALL}")
       
 convert_grade()
