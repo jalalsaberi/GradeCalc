@@ -1,4 +1,4 @@
-<img width="140" height="140"  alt="PingBot" src="https://github.com/jalalsaberi/GradeCalc/blob/main/GradeCalc.png">
+<img width="140" height="140"  alt="GradeCalc" src="https://github.com/jalalsaberi/GradeCalc/blob/main/GradeCalc.png">
 
 # GradeCalc
 
