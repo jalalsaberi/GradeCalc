@@ -21,6 +21,6 @@ def convert_grade():
           letter_grade = "D"
       else:
           letter_grade = "F"
-      print(f"\n{Fore.YELLOW}Iranian Grade: {Fore.CYAN}{iran_grade}\n{Fore.YELLOW}GPA: {Fore.CYAN}{round(gpa, 3)}\n{Fore.YELLOW}Percentage: {Fore.CYAN}{round(percent, 2)}\n{Fore.YELLOW}Letter Grade: {Fore.CYAN}{letter_grade}{Style.RESET_ALL}")
+      print(f"\n{Fore.YELLOW}Iranian Grade: {Fore.CYAN}{iran_grade}\n{Fore.YELLOW}GPA: {Fore.CYAN}{round(gpa, 3)}\n{Fore.YELLOW}Percentage: {Fore.CYAN}{round(percent, 2)}%\n{Fore.YELLOW}Letter Grade: {Fore.CYAN}{letter_grade}{Style.RESET_ALL}")
       
 convert_grade()
