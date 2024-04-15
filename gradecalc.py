@@ -4,7 +4,7 @@ init()
 
 def convert_grade():
     iran_grade = float(input(f"{Fore.YELLOW}Enter an Iranian 20-point grade:{Style.RESET_ALL} "))
-    if iran_grade < 0 or iran_grade > 20:
+    if iran_grade <= 0 or iran_grade > 20:
         print(f"{Fore.RED}Iranian grade must be between 0 and 20{Style.RESET_ALL}\n")
         convert_grade()
     else:
