@@ -53,6 +53,35 @@ sudo apt update -y && sudo apt install python3 python3-pip curl -y && pip instal
 - Open your preferred terminal and navigate to the project directory
 - Run the project using Python 3
 
+## Web Hosting
+
+#### 1. Configure Your Server:
+
+- Ensure that your server environment is properly configured to serve web content. This includes installing necessary software like a web server (e.g., Apache, Nginx) and configuring it to serve files from the correct directories.
+
+#### 2. Copy the www Folder to Your Desired Web Server Root Directory:
+
+- Download the Project.
+- Copy the entire contents of the www folder to the root directory of your web server.
+- This root directory is typically named public_html, htdocs, www, or similar, depending on your server configuration.
+- Ensure that the file permissions are set correctly to allow the web server to access and serve these files.
+- Verify that the files are accessible by navigating to your server's URL in a web browser.
+
+#### 3. Check File and Directory Permissions:
+
+- Ensure that the files and directories in your web server root directory have the correct permissions set. Directories should typically have permissions of 755 (rwxr-xr-x), and files should have permissions of 644 (rw-r--r--). You can adjust permissions using the chmod command.
+
+#### 4. Configure Server Settings:
+
+- Check your server configuration files (e.g., Apache's httpd.conf, Nginx's configuration files) to ensure they are correctly set up to serve files from the desired directory.
+- Verify that any virtual hosts or server blocks are properly configured to point to the correct root directory.
+
+#### 5. Test Your Website:
+        
+- Once the files are copied and the server is properly configured, test your website by navigating to its URL in a web browser.
+- Check for any errors or issues that may arise during loading or navigation.
+- If you encounter errors, refer to your server logs for more information on the cause of the problem.
+
 ## License
 
 This project is licensed under the [MIT License](https://github.com/jalalsaberi/GradeCalc?tab=MIT-1-ov-file) (see the LICENSE file for details)
