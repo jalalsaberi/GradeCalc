@@ -2,7 +2,7 @@
 
 # GradeCalc
 
-**🧮 A Python script for converting Iranian 20-point grades into GPA, percentage, and letter grades.**
+**🧮 A Project for converting Iranian 20-point grades into GPA, percentage, and letter grades.**
 
 [![](https://img.shields.io/badge/Version-v1.0.0-blue)](https://github.com/jalalsaberi/GradeCalc/releases)
 [![](https://img.shields.io/badge/Licence-MIT-green)](https://github.com/jalalsaberi/GradeCalc?tab=MIT-1-ov-file)
