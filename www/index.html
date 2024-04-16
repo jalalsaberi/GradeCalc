@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator | محاسبه گر نمره</title>
+    <link rel="icon" type="image/png" href="GradeCalc.png">
+    <style>
+        body {
+            font-family: 'IranSans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #f4f4f4;
+            direction: ltr; /* Default direction */
+        }
+        /* Align text to right-to-left for Persian language */
+        body[lang="fa"] {
+            direction: rtl;
+        }
+        /* @font-face {
+            font-family: 'Nastealiq';
+            src: url('nastealiq.ttf') format('truetype');
+        }*/
+        body[lang="fa"] {
+            direction: rtl;
+            font-family: 'IranSans', Arial, sans-serif; /* Change 'IranSans' to your desired Farsi font */
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        .form-container {
+            margin-bottom: 20px;
+        }
+        label {
+            display: inline-block;
+            margin-bottom: 5px;
+            margin-right: 10px;
+            color: #00a6ff;
+        }
+        input[type="text"] {
+            width: calc(100% - 140px);
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            margin-right: 10px;
+            background-color: #1a1a1a;
+            color: #f4f4f4;
+        }
+        button {
+            padding: 8px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            font-family: 'IranSans', Arial, sans-serif; /* Change 'IranSans' to your desired Farsi font */
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result-container {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background-color: #444;
+        }
+        .answer-text {
+            color: #44ff00;
+        }
+        .social-buttons {
+            margin-top: 20px;
+        }
+        .other-button {
+            background-color: #7676761e;
+            direction: ltr; /* Prevent direction change */
+        }
+        .other-button:hover {
+            background-color: #0808081e;
+        }
+        .fa-selected {
+            background-color: rgba(0, 0, 0, 0.2); /* Darken background slightly when Persian language is selected */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="language-buttons">
+            <button onclick="switchLanguage('fa')" id="faButton" class="other-button">
+                <img width="20" height="20"  alt="fa" src="https://img.icons8.com/color/48/iran.png">
+            </button>
+            <button onclick="switchLanguage('en')" id="enButton" class="other-button">
+                <img width="20" height="20"  alt="en" src="https://img.icons8.com/color/48/usa.png">
+            </button>
+        </div>
+        <h1 id="pname">🧮 Grade Calculator</h1>
+        <p id="instruction">Here you can convert your Iranian 20-point grades into GPA, percentage, and letter grades.</p>
+        <h3 id="whatis">What is GPA?</h3>
+        <p id="gpa">
+            GPA stands for "Grade Point Average." It is a numerical representation of a student's academic performance, typically calculated on a scale of 0 to 4.0 in the United States. It is derived by averaging the grades obtained in all courses taken by the student.
+        </p>
+        <div class="form-container">
+            <label id="entermsg" for="iran-grade">Enter an Iranian 20-point grade:</label>
+            <input type="text" id="iran-grade" name="iran-grade">
+            <button onclick="convertGrade()">Convert</button>
+        </div>
+        <div id="result-container" style="direction: ltr;"></div>
+        <div class="social-buttons">
+            <a href="https://github.com/jalalsaberi/GradeCalc" target="_blank"><button class="other-button"><img width="35" height="35"  alt="github" src="github.png"></button></a>
+            <a href="https://nowpayments.io/donation?api_key=D8PCVB0-GRN4ZKB-HE7GFGC-84QRXA5&source=lk_donation&medium=referral" target="_blank"><button class="other-button"><img width="35" height="35"  alt="coffee" src="coffee.png"></button></a>
+        </div>
+    </div>
+    <script>
+        // Language-specific texts
+        const languageTexts = {
+            'en': {
+                'instruction': 'Here you can convert your Iranian 20-point grades into GPA, percentage, and letter grades.',
+                'convert': 'Convert',
+                'pname': '🧮 Grade Calculator',
+                'desc': 'Here you can convert your Iranian 20-point grades into GPA, percentage, and letter grades.',
+                'entermsg': 'Enter an Iranian 20-point grade:',
+                'whatis': 'What is GPA?',
+                'gpa': 'GPA stands for "Grade Point Average." It is a numerical representation of a student\'s academic performance, typically calculated on a scale of 0 to 4.0 in the United States. It is derived by averaging the grades obtained in all courses taken by the student.'
+            },
+            'fa': {
+                'instruction': 'در اینجا می توانید نمرات ۲۰ امتیازی سیستم آموزش ایران را به GPA، درصد و حروف تبدیل کنید.',
+                'convert': 'تبدیل',
+                'pname': '🧮 محاسبه گر نمره',
+                'entermsg': 'نمره خود را در مقیاس ۲۰ وارد کنید:',
+                'whatis': 'GPA چیست؟',
+                'gpa': 'GPA به معنای "میانگین نمرات" است. یک نماد عددی از عملکرد تحصیلی یک دانش‌آموز است که معمولاً در مقیاس ۰ تا ۴.۰ در ایالات متحده محاسبه می‌شود. این میانگین از جمع نمرات تمام دروسی که دانش‌آموز گرفته محاسبه می‌شود.'
+            }
+        };
+
+        // Initial language
+        let currentLanguage = 'fa';
+
+        // Function to switch language
+        function switchLanguage(language) {
+            currentLanguage = language;
+            updateLanguage();
+            document.getElementById('faButton').classList.remove('fa-selected');
+            document.getElementById('enButton').classList.remove('fa-selected');
+            if (language === 'fa') {
+                document.getElementById('faButton').classList.add('fa-selected');
+            } else {
+                document.getElementById('enButton').classList.add('fa-selected');
+            }
+        }
+
+        // Function to update language
+        function updateLanguage() {
+            const texts = languageTexts[currentLanguage];
+            document.getElementById('instruction').textContent = texts['instruction'];
+            document.querySelector('.form-container button').textContent = texts['convert'];
+            document.getElementById('pname').textContent = texts['pname'];
+            document.getElementById('entermsg').textContent = texts['entermsg'];
+            document.getElementById('gpa').textContent = texts['gpa'];
+            document.getElementById('whatis').textContent = texts['whatis'];
+            // Set the language attribute on the body element
+            document.body.setAttribute('lang', currentLanguage);
+        }
+
+        // Initial language update
+        updateLanguage();
+
+        // Function to convert grade
+        function convertGrade() {
+            var iranGradeInput = document.getElementById('iran-grade');
+            var iranGrade = parseFloat(iranGradeInput.value);
+            var resultContainer = document.getElementById('result-container');
+
+            if (isNaN(iranGrade) || iranGrade <= 0 || iranGrade > 20) {
+                let errorMessage;
+                if (currentLanguage === 'fa') {
+                    errorMessage = 'نمره وارد شده باید بین ۰ تا ۲۰ باشد';
+                    resultContainer.style.direction = 'rtl';
+                } else {
+                    errorMessage = 'Iranian grade must be between 0 and 20';
+                    resultContainer.style.direction = 'ltr';
+                }
+                
+                // Display error message
+                resultContainer.innerHTML = '<span style="color: #ff6b6b;">' + errorMessage + '</span>';
+                resultContainer.style.display = 'block';
+            } else {
+                var gpa = (iranGrade / 20) * 4;
+                var percent = (iranGrade / 20) * 100;
+                var letterGrade = '';
+
+                if (iranGrade >= 17) {
+                    letterGrade = 'A';
+                } else if (iranGrade >= 15) {
+                    letterGrade = 'B';
+                } else if (iranGrade >= 12) {
+                    letterGrade = 'C';
+                } else if (iranGrade >= 10) {
+                    letterGrade = 'D';
+                } else {
+                    letterGrade = 'F';
+                }
+
+                resultContainer.innerHTML = '<span>Iranian Grade:</span> <span class="answer-text">' + iranGrade + '</span><br>' +
+                                            '<span>GPA:</span> <span class="answer-text">' + gpa.toFixed(3) + '</span><br>' +
+                                            '<span>Percentage:</span> <span class="answer-text">' + percent.toFixed(2) + '%</span><br>' +
+                                            '<span>Letter Grade:</span> <span class="answer-text">' + letterGrade + '</span>';
+                resultContainer.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
