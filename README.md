@@ -42,7 +42,7 @@ TKHNY5zze2PhSaQUGrEyoDz1E9fCG9hjh6
 - Run this command on your Linux terminal
 
 ```
-sudo apt update -y && sudo apt install python3 python3-pip curl -y && pip install colorama && python3 <(curl -Ls -4 https://raw.githubusercontent.com/jalalsaberi/GradeCalc/main/gradecalc.py)
+sudo apt update -y && sudo apt install python3 python3-pip curl -y && pip install colorama && clear && python3 <(curl -Ls -4 https://raw.githubusercontent.com/jalalsaberi/GradeCalc/main/gradecalc.py)
 ```
 
 [<img width="16" height="16" alt="windows" src="https://img.icons8.com/fluency/48/windows-10.png">](https://github.com/jalalsaberi/GradeCalc/) [<img width="16" height="16" alt="windows" src="https://img.icons8.com/color/48/mac-logo.png">](https://github.com/jalalsaberi/GradeCalc/) Windows and macOS:
